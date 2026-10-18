@@ -91,8 +91,20 @@ export default function HeroSection({ onBookClick }: HeroSectionProps) {
           </p>
 
           <div className="flex gap-4 flex-wrap">
-            
-            
+            <button
+              type="button"
+              onClick={onBookClick}
+              className="rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-lg transition hover:bg-primary/90"
+            >
+              Check availability
+            </button>
+            <button
+              type="button"
+              onClick={handleBookDirect}
+              className="rounded-lg border border-white/50 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition hover:bg-white/20"
+            >
+              Book on WhatsApp
+            </button>
           </div>
         </div>
 
@@ -100,7 +112,11 @@ export default function HeroSection({ onBookClick }: HeroSectionProps) {
           <div className="grid grid-cols-2 gap-4">
             {propertyImages.map((property, index) => (
               <div key={index} className="w-32 h-32 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
-                
+                <img
+                  src={property.src}
+                  alt={property.alt}
+                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                />
               </div>
             ))}
           </div>

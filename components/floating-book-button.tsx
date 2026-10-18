@@ -22,7 +22,16 @@ export default function FloatingBookButton({ onClick }: FloatingBookButtonProps)
     return () => window.removeEventListener("scroll", toggleVisibility)
   }, [])
 
+  if (!isVisible) return null
+
   return (
-    null
+    <button
+      type="button"
+      onClick={onClick}
+      className="fixed bottom-6 right-6 z-30 rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground shadow-xl transition hover:scale-105 hover:bg-primary/90"
+      aria-label="Open booking form"
+    >
+      Book your stay
+    </button>
   )
 }
