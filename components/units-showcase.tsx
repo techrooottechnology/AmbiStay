@@ -31,7 +31,7 @@ const units: Unit[] = [
     id: "kerwa",
     name: "Ambi Farm",
     location: "Kerwa Dam Road",
-    image: "/images/kerwa_farm.jpg",
+    image: "/images/kerwa-farm.avif",
     capacity: "Up to 4 guests",
     weekdayRate: 6500,
     weekdayPeople: 4,
@@ -202,6 +202,10 @@ export default function UnitsShowcase() {
                   <img
                     src={unit.images ? unit.images[imageIndex[unit.id] || 0] : unit.image}
                     alt={unit.name}
+                    onError={(event) => {
+                      event.currentTarget.onerror = null
+                      event.currentTarget.src = "/images/kerwa-farm.avif"
+                    }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {unit.images && unit.images.length > 1 && (
@@ -363,6 +367,10 @@ export default function UnitsShowcase() {
                         <img
                           src={unit.images ? unit.images[imageIndex[unit.id] || 0] : unit.image}
                           alt={unit.name}
+                          onError={(event) => {
+                            event.currentTarget.onerror = null
+                            event.currentTarget.src = "/images/kerwa-farm.avif"
+                          }}
                           className="w-full h-64 object-cover rounded-lg"
                         />
                         {unit.images && unit.images.length > 1 && (
