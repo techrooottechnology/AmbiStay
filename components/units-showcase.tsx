@@ -176,29 +176,32 @@ export default function UnitsShowcase() {
   }
 
   return (
-    <section className="py-20 bg-white" id="properties">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#f7f4ef] py-20 sm:py-28" id="properties">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-serif font-light text-foreground mb-4 text-balance">
-            Our Exclusive Properties
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover four distinctive luxury retreats, each offering unique experiences tailored to your perfect getaway
+        <div className="mb-12 flex flex-col gap-5 border-b border-[#d9d1c5] pb-8 sm:mb-16 sm:flex-row sm:items-end sm:justify-between animate-fade-in-up">
+          <div className="max-w-2xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary">Stay somewhere special</p>
+            <h2 className="text-4xl font-serif font-light leading-tight tracking-tight text-[#26362f] sm:text-5xl md:text-6xl text-balance">
+              Our exclusive properties
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm leading-7 text-[#69736e] sm:text-right">
+            Four distinctive retreats around Bhopal, thoughtfully prepared for slow mornings, shared meals and easy escapes.
           </p>
         </div>
 
         {/* Units Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-8 mb-16">
           {units.map((unit, idx) => (
             <div
               key={unit.id}
               className="group cursor-pointer animate-fade-in-up"
               style={{ animationDelay: `${idx * 100}ms` }}
             >
-              <div className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+              <div className="overflow-hidden rounded-2xl border border-[#e4ddd2] bg-white shadow-[0_12px_35px_rgba(45,55,48,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_50px_rgba(45,55,48,0.12)]">
                 {/* Image Container */}
-                <div className="relative h-64 bg-gray-100 overflow-hidden">
+                <div className="relative h-72 overflow-hidden bg-[#e8e3da] sm:h-80">
                   <img
                     src={unit.images ? unit.images[imageIndex[unit.id] || 0] : unit.image}
                     alt={unit.name}
@@ -239,7 +242,7 @@ export default function UnitsShowcase() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 sm:p-7">
                   {/* Header */}
                   <div className="mb-4">
                     <h3 className="text-2xl font-serif font-light text-foreground mb-1">{unit.name}</h3>
@@ -315,7 +318,7 @@ export default function UnitsShowcase() {
                   <div className="flex flex-col gap-2">
                     <button
                       onClick={() => handleBookDirect(unit.name)}
-                      className="w-full bg-green-500 hover:bg-green-600 text-white rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                      className="w-full rounded-xl bg-[#315c4b] py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#24493b] hover:shadow-lg flex items-center justify-center gap-2"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.413-2.393-1.474-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378l-.361.214-3.741-.982.998 3.645-.235.364a9.964 9.964 0 -1.51-13.228 9.874 9.874 0 005.283-1.542l.355-.213 3.741.982-.999-3.645.236-.364c.552.164 1.088.427 1.56.786" />
@@ -324,14 +327,14 @@ export default function UnitsShowcase() {
                     </button>
                     <button
                       onClick={() => handleBookNow(unit.airbnbLink)}
-                      className="w-full bg-gray-100 hover:bg-gray-200 text-foreground border border-gray-300 rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                      className="w-full rounded-xl border border-[#d9d1c5] bg-[#faf8f4] py-3 text-sm font-semibold text-[#26362f] transition-all duration-300 hover:bg-[#f0ebe3] flex items-center justify-center gap-2"
                     >
                       <span>Book on Airbnb</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => setSelectedUnit(unit.id)}
-                      className="w-full bg-primary hover:bg-primary/90 text-white rounded-lg py-2.5 text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg"
+                      className="w-full rounded-xl bg-primary py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-primary/90 hover:shadow-lg"
                     >
                       View Details
                     </button>
