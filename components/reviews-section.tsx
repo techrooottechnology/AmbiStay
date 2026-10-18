@@ -58,7 +58,8 @@ export default function ReviewsSection() {
     return () => clearInterval(timer)
   }, [reviews.length])
 
-  const averageRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1)
+  const averageRatingValue = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
+  const averageRating = averageRatingValue.toFixed(1)
 
   return (
     <section id="reviews" className="py-32 bg-background">
@@ -69,7 +70,7 @@ export default function ReviewsSection() {
           <div className="flex items-center justify-center gap-3">
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className={`text-2xl ${i < Math.round(averageRating) ? "text-accent" : "text-border"}`}>
+                <span key={i} className={`text-2xl ${i < Math.round(averageRatingValue) ? "text-accent" : "text-border"}`}>
                   ★
                 </span>
               ))}
